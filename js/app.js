@@ -13,12 +13,24 @@ function eventListeners(){
     email.addEventListener('blur', validateField);
     subject.addEventListener('blur', validateField);
     message.addEventListener('blur', validateField);
+    sendEmailForm.addEventListener('submit', sendEmail);
     resetBtn.addEventListener('click', resetForm);
 }
 
 
 function appInit() {
     sendBtn.disabled = true;
+}
+
+function sendEmail(e) {
+    e.preventDefault();
+
+    const spinner = document.querySelector('#spinner');
+    spinner.style.display = 'block';
+
+    setTimeout(function()  {
+        spinner.style.display = 'none';
+    }, 3000 );
 }
 
 function validateField() {
